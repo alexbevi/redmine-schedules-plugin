@@ -13,9 +13,9 @@ after_submit_href = url_for(:controller => "schedules", :action => "index",
   :date => @date) unless !@project.nil? || !@user.nil?
 %>
 <h2>
-  <%= l(:label_schedule_edit, link_to_user(@user)) unless @user.nil? %>
-  <%= l(:label_schedule_edit, @project.to_s) unless @project.nil? %>
-  <%= l(:label_schedule_edit, "today") if @user.nil? && @project.nil? %>
+  <%= l(:label_schedule_edit) % link_to_user(@user) unless @user.nil? %>
+  <%= l(:label_schedule_edit) % @project.to_s unless @project.nil? %>
+  <%= l(:label_schedule_edit) % "today" if @user.nil? && @project.nil? %>
 </h2>
 
 <p class="subtitle"><%= "#{l(:label_date_from)} #{format_date(@calendar.startdt)} #{l(:label_date_to).downcase} #{format_date(@calendar.enddt)}" %></p>
